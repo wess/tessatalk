@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "strict": false,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es2019",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": true,
+    "allowJs": true,
+    "rootDir": "src",
+    "baseUrl": "./src",
+    "jsx": "react",
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "./src/*",
+    ],
+    "paths": {
+      "~/*": [
+        "./*",
+        "./src/*",
+      ]
+    }
+  },
+  "lib": [
+    "es6", 
+    "es2017", 
+    "es2019", 
+    "dom"
+  ],
+  "include": [
+    "./src/**/*", "index.d.ts",
+  ],
+  "exclude": [
+    "dist",
+  ],
+}
