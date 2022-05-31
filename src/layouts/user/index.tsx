@@ -8,7 +8,9 @@ import {
 
 const Component = ({children}) => {
   return (
-    <Box>{children}</Box>
+    <Box w='100%' h='100vh'> 
+      {children}
+    </Box>
   );
 }
 

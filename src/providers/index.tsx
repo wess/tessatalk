@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SessionProvider from './session';
+import PreferencesProvider from './preferences';
 import NavProvider from './nav';
 import SettingsProvider from './settings';
 import ApiProvider from './api';
@@ -15,6 +16,7 @@ export {
 const Component = ({children}) => (
   <ApiProvider>
     <SessionProvider>
+      <PreferencesProvider>
       <SettingsProvider>
         <NavProvider>
           <FlashProvider>
@@ -22,6 +24,7 @@ const Component = ({children}) => (
           </FlashProvider>
         </NavProvider>
       </SettingsProvider>
+      </PreferencesProvider>
     </SessionProvider>
   </ApiProvider>
 );

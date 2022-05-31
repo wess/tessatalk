@@ -41,6 +41,7 @@
     "yup": "^0.32.11"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "react-icons": "^4.3.1"
   }
 }

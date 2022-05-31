@@ -1,6 +1,7 @@
 
 export {default as Settings} from './settings';
 export {default as Session} from './session';
+export {default as Preferences} from './preferences';
 
 const _key = (key: string) => `tessatalk_${key}`;
 

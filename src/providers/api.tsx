@@ -1,5 +1,6 @@
 import React from 'react';
 import {Appwrite} from 'appwrite';
+import 'dotenv/config';
 
 const PROJECT_ID = process.env['PROJECT_ID'];
 const ENDPOINT = process.env['ENDPOINT'];

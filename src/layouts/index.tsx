@@ -25,11 +25,9 @@ const Component = (props) => {
   const {flash, setFlash} = useFlash();
 
   React.useEffect(() => {
-    if(flash) {
       setTimeout(() => {
         setFlash(null);
       }, 2000);
-    }
   }, [flash, setFlash]);
 
   return (
