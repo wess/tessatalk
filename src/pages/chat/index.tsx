@@ -25,13 +25,24 @@ import {
   useApi,
 } from '~/providers/hooks';
 
-const MSG_ID = '62964ce25d5f62ee8c52';
+const MSG_ID = '629a1c77e7581b2f7087';
 
 const Component = (_props) => {
+  const {setSession} = useSession();
   let [user, setUser] = React.useState<string>(null);
   let [messages, setMessages] = React.useState([]);
   let [pendingMessage, setPendingMessage] = React.useState('');
   let api = useApi();
+
+  const getUser = async () => {
+    try {
+      let user = await api.account.get();
+  
+      setUser(user.name);
+    } catch (_) {
+      setSession(null);
+    }
+  }
 
   const sendMessage = async () => {
     if(pendingMessage.length == 0 || pendingMessage == '') return;
@@ -63,8 +74,13 @@ const Component = (_props) => {
     );
   }
 
+  const effect = async () => {
+    await getUser();
+    await getMessages();
+  }
+
   React.useEffect(() => {
-    getMessages();
+    effect();
   }, []);
 
   if(user == null) {

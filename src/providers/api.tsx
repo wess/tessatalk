@@ -1,9 +1,8 @@
 import React from 'react';
 import {Appwrite} from 'appwrite';
-import 'dotenv/config';
 
-const PROJECT_ID = process.env['PROJECT_ID'];
-const ENDPOINT = process.env['ENDPOINT'];
+const PROJECT_ID = '629a0fbe3bd88e6547a9';
+const ENDPOINT = 'https://demo.appwrite.io/v1';
 
 const client = new Appwrite();
 client.setEndpoint(ENDPOINT)
