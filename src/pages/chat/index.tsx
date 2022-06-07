@@ -1,4 +1,3 @@
-import {Query} from 'appwrite';
 import React from 'react';
 
 import {
@@ -12,8 +11,6 @@ import {
   Tr,
   Td,
   Button,
-  List,
-  ListItem,
 } from '@chakra-ui/react';
 
 import {
@@ -107,8 +104,9 @@ const Component = (_props) => {
               {
                 messages.map((m, i) => (
                   <Tr key={`chat_${i}`}>
-                  <Td>{m.name}: </Td>
-                  <Td width='100%'>{m.message}</Td>
+                    <Td>[{m.created}]</Td>
+                    <Td>{m.name}: </Td>
+                    <Td width='100%'>{m.message}</Td>
                 </Tr>  
                 ))
               }

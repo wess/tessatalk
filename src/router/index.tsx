@@ -3,12 +3,9 @@ import React from 'react';
 import {
   Routes,
   Route,
-  Navigate,
-  useLocation,
 } from 'react-router-dom';
 
 import {
-  useNav,
   useSession,
 } from '~/providers/hooks';
 
@@ -18,7 +15,6 @@ import {
 } from '~/pages';
 
 const Component = () => {
-  const location = useLocation();
   const {session} = useSession();
 
   const Destination = session == null ? Landing : Chat;
