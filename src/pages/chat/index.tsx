@@ -61,15 +61,31 @@ const Component = (_props) => {
 
   
   const getMessages = async () => {
-    const list = await api.database.listDocuments(MSG_ID);
+    const list = await api.database.listDocuments(
+      MSG_ID,
+      undefined,
+      30,
+      undefined,
+      undefined,
+      undefined,
+      ["$id"],
+      ["DESC"]
+    );
+
+    const messages = list.documents.reverse();
 
     setMessages(
-      list.documents
-      .map(doc => {
-        return {name: doc['user'], message: doc['message']}
+      messages.map((doc) => {
+        return { name: doc["user"], message: doc["message"] };
       })
     );
-  }
+
+    // After render
+    setTimeout(() => {
+      const chatEl = document.getElementById("chat");
+      chatEl.scrollTop = chatEl.scrollHeight;
+    }, 0);
+  };
 
   const effect = async () => {
     await getUser();
@@ -97,7 +113,7 @@ const Component = (_props) => {
           Topic
         </Heading>
 
-        <Box w='full' flex={1} overflowX='hidden' overflowY='auto'>
+        <Box id="chat" w='full' flex={1} overflowX='hidden' overflowY='auto'>
           <TableContainer>
             <Table variant='striped' colorScheme='gray'>
               <Tbody>
